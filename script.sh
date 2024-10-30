@@ -42,8 +42,6 @@ echo "============="
 # Export parameters
 export BUILD_USERNAME=User
 export BUILD_HOSTNAME=crave
-export USE_CCACHE=1
-ccache -M 50G
 echo "======= Export Done ======"
 
 # Set up build environment
