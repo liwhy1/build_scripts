@@ -3,10 +3,7 @@
 # Clear folders
 rm -rf .repo/local_manifests
 rm -rf device/oplus/denniz
-rm -rf vendor/oplus/denniz
 rm -rf device/oplus/mt6893-common
-rm -rf vendor/oplus/mt6893-common
-rm -rf kernel/oplus/mt6893
 
 # Init ROM manifest
 repo init -u https://github.com/LineageOS/android.git -b lineage-22.1 --git-lfs
@@ -20,8 +17,6 @@ echo "============================"
 echo "Local manifest clone success"
 echo "============================"
 
-git submodule update --init --recursive
-
 # Sync
 /opt/crave/resync.sh
 echo "============="
@@ -31,12 +26,17 @@ echo "============="
 # Export parameters
 export BUILD_USERNAME=Liwhy
 export BUILD_HOSTNAME=crave
-echo "======= Export Done ======"
+echo "============"
+echo "Export Done"
+echo "============"
 
 # Set up build environment
 . build/envsetup.sh
-breakfast denniz
-echo "====== Envsetup Done ======="
+lunch lineage_denniz-ap3a-userdebug
+echo "============="
+echo "Envsetup Done"
+echo "============="
 
 # Build signed ROM
-bash build_signed.sh
+breakfast denniz
+mka bacon
