@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Clear folders
+cwd=$(pwd)
 rm -rf .repo/local_manifests/
 rm -rf device/oplus/denniz/
 rm -rf device/oplus/mt6893-common/
@@ -28,11 +29,15 @@ echo "============="
 echo "Sync success"
 echo "============="
 
+rm -rf device/oplus/denniz/
+git clone https://github.com/liwhy1/android_device_oplus_denniz -b lineage-22.1 device/oplus/denniz
+
 # Set up build environment
 . build/envsetup.sh
 echo "============="
 echo "Envsetup Done"
 echo "============="
+cd $cwd
 
 # Build target-files-package
 lunch lineage_denniz-ap3a-userdebug
