@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Clear folders
-rm -rf .repo/local_manifests
-rm -rf device/oplus/denniz
-rm -rf device/oplus/mt6893-common
-rm -rf vendor/oplus/denniz
-rm -rf vendor/oplus/mt6893-common
+rm -rf .repo/local_manifests/
+rm -rf device/oplus/denniz/
+rm -rf device/oplus/mt6893-common/
+rm -rf vendor/oplus/denniz/
+rm -rf vendor/oplus/mt6893-common/
 echo "======================="
 echo "Old directories removed"
 echo "======================="
@@ -28,20 +28,13 @@ echo "============="
 echo "Sync success"
 echo "============="
 
-# Export parameters
-export BUILD_USERNAME=Liwhy
-export BUILD_HOSTNAME=crave
-echo "============"
-echo "Export Done"
-echo "============"
-
 # Set up build environment
-source build/envsetup.sh
+. build/envsetup.sh
 echo "============="
 echo "Envsetup Done"
 echo "============="
 
-# Build signed ROM
-breakfast denniz userdebug; \
-mka target-files-package otatools; \
-/opt/crave/crave_sign.sh
+# Build target-files-package
+lunch lineage_denniz-ap3a-userdebug
+make installclean
+mka target-files-package otatools
