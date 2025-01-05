@@ -41,5 +41,4 @@ cd $cwd
 
 # Build target-files-package
 lunch lineage_denniz-ap3a-userdebug
-make installclean
-mka target-files-package otatools
+curl https://raw.githubusercontent.com/liwhy1/build_scripts/refs/heads/lineage-22.1/script.sh | bash
