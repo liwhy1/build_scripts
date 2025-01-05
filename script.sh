@@ -41,4 +41,4 @@ cd $cwd
 
 # Build target-files-package
 lunch lineage_denniz-ap3a-userdebug
-curl https://raw.githubusercontent.com/liwhy1/build_scripts/refs/heads/lineage-22.1/script.sh | bash
+curl https://raw.githubusercontent.com/liwhy1/build_signed/refs/heads/main/build_signed.sh | bash
