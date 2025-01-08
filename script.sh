@@ -19,7 +19,7 @@ echo "======================="
 #echo "========================="
 
 # Clone local manifest
-git clone https://github.com/liwhy1/local_manifests -b rising-6.1 .repo/local_manifests
+git clone https://github.com/liwhy1/local_manifests -b rising-6 .repo/local_manifests
 echo "============================"
 echo "Local manifest clone success"
 echo "============================"
