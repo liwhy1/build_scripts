@@ -30,9 +30,6 @@ echo "============="
 echo "Sync success"
 echo "============="
 
-rm -rf device/oplus/denniz/
-git clone https://github.com/liwhy1/android_device_oplus_denniz -b rising-6.1 device/oplus/denniz
-
 # Set up build environment
 . build/envsetup.sh
 echo "============="
