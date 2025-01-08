@@ -31,13 +31,13 @@ echo "Sync success"
 echo "============="
 
 # Set up build environment
+cd $cwd
 . build/envsetup.sh
 echo "============="
 echo "Envsetup Done"
 echo "============="
-cd $cwd
 
 # Build signed
-git clone https://github.com/liwhy1/build_scripts -b rising_keys $cwd/vendor/lineage-priv/keys
+git clone https://github.com/liwhy1/build_scripts -b rising_keys vendor/lineage-priv/keys
 riseup denniz userdebug
 rise sb
