@@ -7,6 +7,7 @@ rm -rf device/oplus/denniz/
 rm -rf device/oplus/mt6893-common/
 rm -rf vendor/oplus/denniz/
 rm -rf vendor/oplus/mt6893-common/
+rm -rf kernel/oplus/mt6893-common/
 rm -rf vendor/lineage-priv/keys/
 echo "======================="
 echo "Old directories removed"
