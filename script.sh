@@ -7,6 +7,7 @@ rm -rf device/oplus/denniz/
 rm -rf device/oplus/mt6893-common/
 rm -rf vendor/oplus/denniz/
 rm -rf vendor/oplus/mt6893-common/
+rm -rf kernel/oplus/mt6893-common/
 rm -rf vendor/lineage-priv/keys/
 echo "======================="
 echo "Old directories removed"
@@ -30,18 +31,14 @@ echo "============="
 echo "Sync success"
 echo "============="
 
-rm -rf device/oplus/denniz/
-git clone https://github.com/liwhy1/android_device_oplus_denniz -b lineage-22.1 device/oplus/denniz
-
 # Set up build environment
+cd $cwd
 . build/envsetup.sh
 echo "============="
 echo "Envsetup Done"
 echo "============="
-cd $cwd
 
 # Build signed
-git clone https://github.com/liwhy1/build_scripts -b lineage_keys $cwd/vendor/lineage-priv/keys
-lunch lineage_denniz-ap3a-userdebug 
+git clone https://github.com/liwhy1/build_scripts -b lineage_keys vendor/lineage-priv/keys
 breakfast denniz userdebug
 mka bacon
