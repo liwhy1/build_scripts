@@ -25,15 +25,15 @@ echo "============================"
 echo "Local manifest clone success"
 echo "============================"
 
-# Clone wip trees
-rm -rf device/oplus/mt6893-common/
-git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.1_wip device/oplus/mt6893-common
-
 # Sync
 /opt/crave/resync.sh
 echo "============="
 echo "Sync success"
 echo "============="
+
+# Clone wip trees
+rm -rf device/oplus/mt6893-common/
+git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.1_wip device/oplus/mt6893-common
 
 # Set up build environment
 cd $cwd
