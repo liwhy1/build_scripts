@@ -34,7 +34,7 @@ echo "============="
 # Clone WIP trees
 rm -rf device/oplus/mt6893-common/
 git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.1_wip device/oplus/mt6893-common
-git clone https://gitlab.com/nattolecats/android_device_oplus_camera -b lineage-22 device/oplus/camera
+git clone https://gitlab.com/liwhy1/android_device_oplus_camera -b lineage-22 device/oplus/camera
 
 # Set up build environment
 cd $cwd
