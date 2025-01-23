@@ -31,6 +31,10 @@ echo "============="
 echo "Sync success"
 echo "============="
 
+# Clone wip trees
+rm -rf kernel/oplus/mt6893-common/
+git clone https://github.com/Kingslayer9988/android_kernel_oplus_mt6893 -b kernelsu-next-susfs kernel/oplus/mt6893-common
+
 # Set up build environment
 cd $cwd
 . build/envsetup.sh
