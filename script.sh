@@ -9,6 +9,7 @@ rm -rf vendor/oplus/denniz/
 rm -rf vendor/oplus/mt6893-common/
 rm -rf kernel/oplus/mt6893-common/
 rm -rf vendor/lineage-priv/keys/
+rm -rf prebuilts/clang/host/linux-x86
 echo "======================="
 echo "Old directories removed"
 echo "======================="
