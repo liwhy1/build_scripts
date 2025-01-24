@@ -43,6 +43,7 @@ echo "Envsetup Done"
 echo "============="
 
 # Build signed
+cd $cwd
 git clone https://github.com/liwhy1/build_scripts -b lineage_keys vendor/lineage-priv/keys
 breakfast denniz userdebug
 mka bacon
