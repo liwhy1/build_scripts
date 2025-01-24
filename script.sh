@@ -32,7 +32,7 @@ echo "Sync success"
 echo "============="
 
 # Clone wip trees
-rm -rf kernel/oplus/mt6893-common/
+rm -rf kernel/oplus/mt6893/
 git clone https://github.com/Kingslayer9988/android_kernel_oplus_mt6893 -b kingslayer kernel/oplus/mt6893
 
 # Set up build environment
