@@ -42,6 +42,12 @@ echo "============="
 echo "Envsetup Done"
 echo "============="
 
+# Double check if ksu was initialized succesfully and handle it in case of an error
+KSU="kernel/oplus/mt6893/KernelSU"
+if [ ! -d "$KSU" ]; then
+    git clone https://github.com/rifsxd/KernelSU-Next -b next kernel/oplus/mt6893/KernelSU
+fi
+
 # Build signed
 cd $cwd
 git clone https://github.com/liwhy1/build_scripts -b lineage_keys vendor/lineage-priv/keys
