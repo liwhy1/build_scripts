@@ -49,6 +49,7 @@ echo "Envsetup Done"
 echo "============="
 
 # Build signed
+cd $cwd
 git clone https://github.com/liwhy1/build_scripts -b rising_keys vendor/lineage-priv/keys
 riseup denniz userdebug
 rise sb
