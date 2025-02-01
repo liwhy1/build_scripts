@@ -15,20 +15,20 @@ echo "============================="
 echo "Old directory remove finished"
 echo "============================="
 
-# Init ROM manifest
-#repo init -u https://github.com/RisingTechOSS/android -b fifteen --git-lfs
-#echo "=========================="
-#echo "ROM manifest init finished"
-#echo "=========================="
+Init ROM manifest
+repo init -u https://github.com/Evolution-X/manifest -b vic --git-lfs
+echo "=========================="
+echo "ROM manifest init finished"
+echo "=========================="
 
 # Clone local manifest
-git clone https://github.com/liwhy1/local_manifests -b rising-6 .repo/local_manifests
+git clone https://github.com/liwhy1/local_manifests -b evox-10 .repo/local_manifests
 echo "============================="
 echo "Local manifest clone finished"
 echo "============================="
 
 # Clone signing keys
-git clone https://github.com/liwhy1/build_scripts -b rising_keys vendor/lineage-priv/keys
+git clone https://github.com/liwhy1/build_scripts -b lineage_keys vendor/lineage-priv/keys
 echo "==========================="
 echo "Signing keys clone finished"
 echo "==========================="
@@ -61,5 +61,5 @@ cd $cwd
 echo "=============="
 echo "Starting build"
 echo "=============="
-riseup denniz userdebug
-rise sb
+lunch lineage_denniz-ap4a-userdebug
+m evolution
