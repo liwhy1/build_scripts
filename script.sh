@@ -28,7 +28,7 @@ echo "Local manifest clone finished"
 echo "============================="
 
 # Clone signing keys
-git clone https://github.com/liwhy1/build_scripts -b lineage_keys vendor/lineage-priv/keys
+git clone https://github.com/liwhy1/build_scripts -b lineage_keys vendor/evolution-priv/keys
 echo "==========================="
 echo "Signing keys clone finished"
 echo "==========================="
