@@ -61,5 +61,5 @@ cd $cwd
 echo "=============="
 echo "Starting build"
 echo "=============="
-lunch lineage_denniz-ap4a-userdebug
+breakfast denniz userdebug
 m evolution
