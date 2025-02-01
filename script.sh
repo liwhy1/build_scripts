@@ -15,7 +15,7 @@ echo "============================="
 echo "Old directory remove finished"
 echo "============================="
 
-Init ROM manifest
+#Init ROM manifest
 repo init -u https://github.com/Evolution-X/manifest -b vic --git-lfs
 echo "=========================="
 echo "ROM manifest init finished"
