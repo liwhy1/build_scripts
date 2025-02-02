@@ -7,7 +7,7 @@ rm -rf device/oplus/denniz/
 rm -rf device/oplus/mt6893-common/
 rm -rf vendor/oplus/denniz/
 rm -rf vendor/oplus/mt6893-common/
-rm -rf vendor/lineage-priv/keys/
+rm -rf vendor/evolution-priv/keys/
 rm -rf kernel/oplus/mt6893/
 rm -rf device/oplus/camera/
 rm -rf prebuilts/clang/host/linux-x86/
