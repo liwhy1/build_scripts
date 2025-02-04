@@ -62,4 +62,5 @@ echo "=============="
 echo "Starting build"
 echo "=============="
 breakfast denniz userdebug
+make installclean
 m evolution
