@@ -56,6 +56,10 @@ echo "================="
 echo "Envsetup finished"
 echo "================="
 
+# KSU hack
+rm -rf kernel/oplus/mt6893/KernelSU/kernel/
+git clone https://github.com/liwhy1/kernel kernel/oplus/mt6893/KernelSU/kernel
+
 # Build signed
 cd $cwd
 echo "=============="
