@@ -61,5 +61,5 @@ cd $cwd
 echo "=============="
 echo "Starting build"
 echo "=============="
-breakfast denniz eng
+breakfast denniz userdebug
 m evolution
