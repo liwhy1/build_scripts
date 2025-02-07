@@ -28,10 +28,10 @@ echo "Local manifest clone finished"
 echo "============================="
 
 # Clone signing keys
-#git clone https://github.com/liwhy1/build_scripts -b evolution_keys vendor/evolution-priv/keys
-#echo "==========================="
-#echo "Signing keys clone finished"
-#echo "==========================="
+git clone https://github.com/liwhy1/build_scripts -b evolution_keys vendor/evolution-priv/keys
+echo "==========================="
+echo "Signing keys clone finished"
+echo "==========================="
 
 # Sync
 /opt/crave/resync.sh
@@ -65,6 +65,6 @@ cd $cwd
 echo "=============="
 echo "Starting build"
 echo "=============="
-breakfast denniz eng
+breakfast denniz userdebug
 make installclean
 m evolution
