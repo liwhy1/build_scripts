@@ -7,39 +7,50 @@ rm -rf device/oplus/denniz/
 rm -rf device/oplus/mt6893-common/
 rm -rf vendor/oplus/denniz/
 rm -rf vendor/oplus/mt6893-common/
-rm -rf kernel/oplus/mt6893/
 rm -rf vendor/lineage-priv/keys/
-echo "======================="
-echo "Old directories removed"
-echo "======================="
+rm -rf kernel/oplus/mt6893/
+rm -rf device/oplus/camera/
+rm -rf prebuilts/clang/host/linux-x86/
+echo "============================="
+echo "Old directory remove finished"
+echo "============================="
 
 # Init ROM manifest
 repo init -u https://github.com/LineageOS/android.git -b lineage-22.1 --git-lfs
-echo "========================="
-echo "ROM manifest init success"
-echo "========================="
+echo "=========================="
+echo "ROM manifest init finished"
+echo "=========================="
 
 # Clone local manifest
 git clone https://github.com/liwhy1/local_manifests -b lineage-22.1 .repo/local_manifests
-echo "============================"
-echo "Local manifest clone success"
-echo "============================"
+echo "============================="
+echo "Local manifest clone finished"
+echo "============================="
+
+# Clone signing keys
+git clone https://github.com/liwhy1/build_scripts -b lineage_keys vendor/evolution-priv/keys
+echo "==========================="
+echo "Signing keys clone finished"
+echo "==========================="
 
 # Sync
 /opt/crave/resync.sh
 echo "============="
-echo "Sync success"
+echo "Sync finished"
 echo "============="
 
 # Set up build environment
 cd $cwd
 . build/envsetup.sh
-echo "============="
-echo "Envsetup Done"
-echo "============="
+echo "================="
+echo "Envsetup finished"
+echo "================="
 
 # Build signed
 cd $cwd
-git clone https://github.com/liwhy1/build_scripts -b lineage_keys vendor/lineage-priv/keys
+echo "=============="
+echo "Starting build"
+echo "=============="
 breakfast denniz userdebug
+make installclean
 mka bacon
