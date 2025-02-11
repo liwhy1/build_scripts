@@ -54,10 +54,13 @@ PRODUCT_CERTIFICATE_OVERRIDES := \
     com.android.uwb:com.android.uwb.certificate.override \
     com.android.uwb.resources:com.android.uwb.resources.certificate.override \
     com.android.virt:com.android.virt.certificate.override \
-    com.android.vndk.current:com.android.vndk.current.certificate.override \
+    com.android.graphics.pdf:com.android.graphics.pdf.override \
+	com.android.vndk.current.on_vendor:com.android.vndk.current.on_vendor.override \
+	com.android.vndk.current:com.android.vndk.current.certificate.override \
     com.android.wifi:com.android.wifi.certificate.override \
     com.android.wifi.dialog:com.android.wifi.dialog.certificate.override \
     com.android.wifi.resources:com.android.wifi.resources.certificate.override \
+	com.google.pixel.camera.hal:com.google.pixel.camera.hal.override \
     com.google.pixel.vibrator.hal:com.google.pixel.vibrator.hal.certificate.override \
     com.qorvo.uwb:com.qorvo.uwb.certificate.override
 
