@@ -7,7 +7,7 @@ rm -rf device/oplus/denniz/
 rm -rf device/oplus/mt6893-common/
 rm -rf vendor/oplus/denniz/
 rm -rf vendor/oplus/mt6893-common/
-#rm -rf vendor/lineage-priv/keys/
+rm -rf vendor/lineage-priv/keys/
 rm -rf kernel/oplus/mt6893/
 rm -rf device/oplus/camera/
 rm -rf prebuilts/clang/host/linux-x86/
@@ -28,14 +28,10 @@ echo "Local manifest clone finished"
 echo "============================="
 
 # Clone signing keys
-#git clone https://github.com/liwhy1/build_scripts -b lineage_keys vendor/lineage-priv/keys
-#echo "==========================="
-#echo "Signing keys clone finished"
-#echo "==========================="
-
-#Gen keys
-bash vendor/lineage-priv/keys/keys.sh
-cd $cwd
+git clone https://github.com/liwhy1/build_scripts -b lineage_keys vendor/lineage-priv/keys
+echo "==========================="
+echo "Signing keys clone finished"
+echo "==========================="
 
 # Sync
 /opt/crave/resync.sh
@@ -58,6 +54,7 @@ echo "=============="
 breakfast denniz userdebug
 make installclean
 mka bacon
+mka bootimage
 
 # Build non ksu boot image
 cd $cwd
