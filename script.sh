@@ -61,6 +61,6 @@ cd $cwd
 echo "=============="
 echo "Starting build"
 echo "=============="
-breakfast denniz userdebug
+breakfast denniz eng
 make installclean
 m evolution
