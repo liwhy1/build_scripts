@@ -47,7 +47,7 @@ git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineag
 rm -rf vendor/oplus/denniz/
 git clone https://github.com/liwhy1/proprietary_vendor_oplus_denniz -b lineage-21 vendor/oplus/denniz
 #rm -rf device/oplus/camera/
-git clone https://gitlab.com/liwhy1/android_device_oplus_camera -b lineage-22.1_wip device/oplus/camera
+git clone https://gitlab.com/liwhy1/android_device_oplus_camera -b lineage-22.1 device/oplus/camera
 
 # Set up build environment
 cd $cwd
