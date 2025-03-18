@@ -2,21 +2,21 @@
 
 # Clear folders
 cwd=$(pwd)
-#rm -rf .repo/local_manifests/
-#rm -rf device/oplus/denniz/
-#rm -rf device/oplus/mt6893-common/
-#rm -rf vendor/oplus/denniz/
-#rm -rf vendor/oplus/mt6893-common/
-#rm -rf vendor/evolution-priv/keys/
-#rm -rf kernel/oplus/mt6893/
-#rm -rf device/oplus/camera/
-#rm -rf prebuilts/clang/host/linux-x86/
+rm -rf .repo/local_manifests/
+rm -rf device/oplus/denniz/
+rm -rf device/oplus/mt6893-common/
+rm -rf vendor/oplus/denniz/
+rm -rf vendor/oplus/mt6893-common/
+rm -rf vendor/evolution-priv/keys/
+rm -rf kernel/oplus/mt6893/
+rm -rf device/oplus/camera/
+rm -rf prebuilts/clang/host/linux-x86/
 echo "============================="
 echo "Old directory remove finished"
 echo "============================="
 
 # Init ROM manifest
-repo init -u https://github.com/Evolution-X/manifest -b vic --git-lfs
+repo init -u https://github.com/Evolution-X/manifest -b vic-qpr1 --git-lfs
 echo "=========================="
 echo "ROM manifest init finished"
 echo "=========================="
@@ -34,7 +34,7 @@ echo "Signing keys clone finished"
 echo "==========================="
 
 # Sync
-#/opt/crave/resync.sh
+/opt/crave/resync.sh
 echo "============="
 echo "Sync finished"
 echo "============="
