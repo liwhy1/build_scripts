@@ -9,14 +9,13 @@ rm -rf vendor/oplus/denniz/
 rm -rf vendor/oplus/mt6893-common/
 rm -rf vendor/lineage-priv/keys/
 rm -rf kernel/oplus/mt6893/
-rm -rf device/oplus/camera/
 rm -rf prebuilts/clang/host/linux-x86/
 echo "============================="
 echo "Old directory remove finished"
 echo "============================="
 
 # Init ROM manifest
-repo init -u https://github.com/LineageOS/android.git -b lineage-22.1 --git-lfs
+repo init -u https://github.com/LineageOS/android.git -b lineage-22.2 --git-lfs
 echo "=========================="
 echo "ROM manifest init finished"
 echo "=========================="
