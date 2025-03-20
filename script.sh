@@ -10,6 +10,7 @@ rm -rf vendor/oplus/mt6893-common/
 rm -rf vendor/evolution-priv/keys/
 rm -rf kernel/oplus/mt6893/
 rm -rf device/oplus/camera/
+rm -rf hardware/oplus
 rm -rf prebuilts/clang/host/linux-x86/
 echo "============================="
 echo "Old directory remove finished"
