@@ -1,6 +1,7 @@
 #!/bin/bash
 
 syncing = false
+wip = false
 cwd=$(pwd)
 
 if [ "$syncing" = true ]; then
@@ -48,7 +49,6 @@ else
 	echo "============="
 fi
 
-wip = false
 
 if [ "$wip" = true ]; then
 	# Clone WIP trees
