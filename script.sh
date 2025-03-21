@@ -1,10 +1,10 @@
 #!/bin/bash
 
-syncing = true
+cwd=$(pwd)
+syncing=true
 
 if [ "$syncing" = true ]; then
 	# Clear folders
-	cwd=$(pwd)
 	rm -rf .repo/local_manifests/
 	rm -rf device/oplus/denniz/
 	rm -rf device/oplus/mt6893-common/
