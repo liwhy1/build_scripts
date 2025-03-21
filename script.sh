@@ -1,7 +1,7 @@
 #!/bin/bash
 
-syncing = false
-wip = false
+syncing=false
+wip=false
 cwd=$(pwd)
 
 if [ "$syncing" = true ]; then
