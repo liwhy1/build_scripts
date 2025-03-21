@@ -1,42 +1,50 @@
 #!/bin/bash
 
-# Clear folders
-cwd=$(pwd)
-rm -rf .repo/local_manifests/
-rm -rf device/oplus/denniz/
-rm -rf device/oplus/mt6893-common/
-rm -rf vendor/oplus/denniz/
-rm -rf vendor/oplus/mt6893-common/
-rm -rf vendor/lineage-priv/keys/
-rm -rf kernel/oplus/mt6893/
-rm -rf prebuilts/clang/host/linux-x86/
-echo "============================="
-echo "Old directory remove finished"
-echo "============================="
+syncing = true
 
-# Init ROM manifest
-repo init -u https://github.com/LineageOS/android.git -b lineage-22.2 --git-lfs
-echo "=========================="
-echo "ROM manifest init finished"
-echo "=========================="
+if [ "$syncing" = true ]; then
+	# Clear folders
+	cwd=$(pwd)
+	rm -rf .repo/local_manifests/
+	rm -rf device/oplus/denniz/
+	rm -rf device/oplus/mt6893-common/
+	rm -rf vendor/oplus/denniz/
+	rm -rf vendor/oplus/mt6893-common/
+	rm -rf vendor/lineage-priv/keys/
+	rm -rf kernel/oplus/mt6893/
+	rm -rf prebuilts/clang/host/linux-x86/
+	echo "============================="
+	echo "Old directory remove finished"
+	echo "============================="
 
-# Clone local manifest
-git clone https://github.com/liwhy1/local_manifests -b lineage-22.1 .repo/local_manifests
-echo "============================="
-echo "Local manifest clone finished"
-echo "============================="
+	# Init ROM manifest
+	repo init -u https://github.com/LineageOS/android.git -b lineage-22.2 --git-lfs
+	echo "=========================="
+	echo "ROM manifest init finished"
+	echo "=========================="
 
-# Clone signing keys
-git clone https://github.com/liwhy1/build_scripts -b lineage_keys vendor/lineage-priv/keys
-echo "==========================="
-echo "Signing keys clone finished"
-echo "==========================="
+	# Clone local manifest
+	git clone https://github.com/liwhy1/local_manifests -b lineage-22.1 .repo/local_manifests
+	echo "============================="
+	echo "Local manifest clone finished"
+	echo "============================="
 
-# Sync
-/opt/crave/resync.sh
-echo "============="
-echo "Sync finished"
-echo "============="
+	# Clone signing keys
+	git clone https://github.com/liwhy1/build_scripts -b lineage_keys vendor/lineage-priv/keys
+	echo "==========================="
+	echo "Signing keys clone finished"
+	echo "==========================="
+
+	# Sync
+	/opt/crave/resync.sh
+	echo "============="
+	echo "Sync finished"
+	echo "============="
+else
+	echo "============="
+	echo "Skipping sync"
+	echo "============="
+fi
 
 # Set up build environment
 cd $cwd
