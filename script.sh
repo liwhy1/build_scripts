@@ -14,7 +14,6 @@ if [ "$syncing" = true ]; then
 	rm -rf kernel/oplus/mt6893/
 	rm -rf device/oplus/camera/
 	rm -rf hardware/oplus
-	rm -rf hardware/lineage/compat
 	rm -rf prebuilts/clang/host/linux-x86/
 	echo "============================="
 	echo "Old directory remove finished"
