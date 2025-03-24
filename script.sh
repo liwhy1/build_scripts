@@ -1,6 +1,6 @@
 #!/bin/bash
 
-syncing=false
+syncing=true
 cwd=$(pwd)
 
 if [ "$syncing" = true ]; then
