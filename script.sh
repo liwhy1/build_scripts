@@ -11,6 +11,7 @@ if [ "$syncing" = true ]; then
 	rm -rf vendor/oplus/denniz/
 	rm -rf vendor/oplus/mt6893-common/
 	rm -rf vendor/evolution-priv/keys/
+	rm -rf vendor/lineage-priv/keys/
 	rm -rf kernel/oplus/mt6893/
 	rm -rf device/oplus/camera/
 	rm -rf hardware/oplus
