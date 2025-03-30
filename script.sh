@@ -63,8 +63,8 @@ git clone https://github.com/liwhy1/android_hardware_mediatek -b lineage-22.1 ha
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b lineage-22.1_wip vendor/oplus/mt6893-common
 rm -rf device/oplus/camera/
 git clone https://gitlab.com/liwhy1/android_device_oplus_camera -b lineage-22.1 device/oplus/camera
-#rm -rf hardware/oplus/
-#git clone https://github.com/liwhy1/hardware_oplus -b vic hardware/oplus
+rm -rf hardware/oplus/
+git clone https://github.com/liwhy1/hardware_oplus -b vic hardware/oplus
 
 # Set up build environment
 cd $cwd
