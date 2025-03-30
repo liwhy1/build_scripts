@@ -65,6 +65,7 @@ git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b li
 #git clone https://gitlab.com/liwhy1/android_device_oplus_camera -b lineage-22.1 device/oplus/camera
 #rm -rf hardware/oplus/
 #git clone https://github.com/liwhy1/hardware_oplus -b vic hardware/oplus
+rm -rf vendor/evolution-priv/keys/
 
 # Set up build environment
 cd $cwd
@@ -79,5 +80,5 @@ echo "=============="
 echo "Starting build"
 echo "=============="
 breakfast denniz userdebug
-make installclean
+#make installclean
 m evolution
