@@ -1,7 +1,7 @@
 #!/bin/bash
 
-cwd=$(pwd)
 syncing=true
+cwd=$(pwd)
 
 if [ "$syncing" = true ]; then
 	# Clear folders
@@ -10,6 +10,7 @@ if [ "$syncing" = true ]; then
 	rm -rf device/oplus/mt6893-common/
 	rm -rf vendor/oplus/denniz/
 	rm -rf vendor/oplus/mt6893-common/
+	rm -rf vendor/evolution-priv/keys/
 	rm -rf vendor/lineage-priv/keys/
 	rm -rf kernel/oplus/mt6893/
 	rm -rf prebuilts/clang/host/linux-x86/
