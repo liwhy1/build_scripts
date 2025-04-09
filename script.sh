@@ -44,8 +44,8 @@ fi
 
 
 # Clone WIP trees
-rm -rf device/oplus/mt6893-common/
-git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.1_wip1 device/oplus/mt6893-common
+#rm -rf device/oplus/mt6893-common/
+#git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.1_wip1 device/oplus/mt6893-common
 #rm -rf device/oplus/denniz/
 #git clone https://github.com/liwhy1/android_device_oplus_denniz -b evox-10 device/oplus/denniz
 #rm -rf hardware/mediatek/
