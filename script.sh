@@ -14,7 +14,7 @@ if [ "$syncing" = true ]; then
 	rm -rf vendor/lineage-priv/keys/
 	rm -rf kernel/oplus/mt6893/
 	rm -rf device/oplus/camera/
-	rm -rf prebuilts/clang/host/linux-x86/
+	rm -rf prebuilts/clang/host/linux-x86/clang-r468909b/
 	echo "============================="
 	echo "Old directory remove finished"
 	echo "============================="
@@ -52,6 +52,8 @@ fi
 # Clone WIP trees
 rm -rf device/oplus/mt6893-common/
 git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.1_wip1 device/oplus/mt6893-common
+rm -rf prebuilts/clang/host/linux-x86/clang-r468909b/
+git clone https://gitlab.com/projectelixiros/android_prebuilts_clang_host_linux-x86_clang-r468909b prebuilts/clang/host/linux-x86/clang-r468909b
 #rm -rf device/oplus/denniz/
 #git clone https://github.com/liwhy1/android_device_oplus_denniz -b evox-10 device/oplus/denniz
 #rm -rf hardware/mediatek/
