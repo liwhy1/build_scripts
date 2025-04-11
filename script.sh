@@ -6,10 +6,8 @@ cwd=$(pwd)
 if [ "$syncing" = true ]; then
 	# Clear folders
 	rm -rf .repo/local_manifests/
-	rm -rf device/oplus/
-	rm -rf vendor/oplus/
-	rm -rf kernel/oplus/
-	rm -rf vendor/evolution-priv/keys/
+	rm -rf {device,vendor,kernel}/oplus/
+	rm -rf vendor/*-priv/keys/
 	echo "============================="
 	echo "Old directory remove finished"
 	echo "============================="
@@ -71,5 +69,5 @@ echo "=============="
 echo "Starting build"
 echo "=============="
 breakfast denniz userdebug
-#make installclean
+make installclean
 m evolution
