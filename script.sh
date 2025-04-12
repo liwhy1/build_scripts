@@ -42,8 +42,16 @@ else
 fi
 
 # Clone WIP trees
+#rm -rf device/oplus/mt6893-common/
+#git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.1_wip1 device/oplus/mt6893-common
+#rm -rf device/oplus/denniz/
+#git clone https://github.com/liwhy1/android_device_oplus_denniz -b evox-10 device/oplus/denniz
 rm -rf kernel/oplus/mt6893
 git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b kernelsu-next kernel/oplus/mt6893
+#rm -rf vendor/oplus/denniz/
+#git clone https://github.com/liwhy1/proprietary_vendor_oplus_denniz -b lineage-21_wip vendor/oplus/denniz
+rm -rf vendor/oplus/mt6893-common/
+git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b lineage-22.1_wip vendor/oplus/mt6893-common
 
 # Set up build environment
 cd $cwd
