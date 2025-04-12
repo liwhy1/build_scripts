@@ -13,7 +13,7 @@ if [ "$syncing" = true ]; then
 	echo "============================="
 
 	# Init ROM manifest
-	repo init --depth=1 --no-repo-verify -u https://github.com/MurtazaKolachi/manifest -b vic --git-lfs -g default,-mips,-darwin,-notdefault
+	repo init -u https://github.com/Evolution-X/manifest -b vic --git-lfs
 	echo "=========================="
 	echo "ROM manifest init finished"
 	echo "=========================="
