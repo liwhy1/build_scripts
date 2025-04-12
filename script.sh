@@ -50,7 +50,7 @@ fi
 #rm -rf hardware/mediatek/
 #git clone https://github.com/liwhy1/android_hardware_mediatek -b lineage-22.1 hardware/mediatek
 rm -rf kernel/oplus/mt6893
-git clone https://github.com/soulspark666/kernel_oplus_mt6893 -b kernelsu-next kernel/oplus/mt6893
+git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b kernelsu-next kernel/oplus/mt6893
 #rm -rf vendor/oplus/denniz/
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_denniz -b lineage-21_wip vendor/oplus/denniz
 #rm -rf vendor/oplus/mt6893-common/
