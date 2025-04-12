@@ -5,15 +5,9 @@ cwd=$(pwd)
 
 if [ "$syncing" = true ]; then
 	# Clear folders
-	rm -rf .repo/local_manifests/
-	rm -rf device/oplus/denniz/
-	rm -rf device/oplus/mt6893-common/
-	rm -rf vendor/oplus/denniz/
-	rm -rf vendor/oplus/mt6893-common/
-	rm -rf vendor/evolution-priv/keys/
-	rm -rf vendor/lineage-priv/keys/
-	rm -rf kernel/oplus/mt6893/
-	rm -rf prebuilts/clang/host/linux-x86/
+	rm -rf .repo/local_manifests
+	rm -rf {device,vendor,kernel}/oplus
+	rm -rf vendor/*-priv/keys
 	echo "============================="
 	echo "Old directory remove finished"
 	echo "============================="
@@ -46,6 +40,10 @@ else
 	echo "Skipping sync"
 	echo "============="
 fi
+
+# Clone WIP trees
+rm -rf kernel/oplus/mt6893
+git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b kernelsu-next kernel/oplus/mt6893
 
 # Set up build environment
 cd $cwd
