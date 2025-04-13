@@ -43,7 +43,7 @@ fi
 
 # Clone WIP trees
 rm -rf device/oplus/mt6893-common/
-git clone https://github.com/soulspark666/android_device_oplus_mt6893-common -b voltage device/oplus/mt6893-common
+git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.1_wip1 device/oplus/mt6893-common
 #rm -rf device/oplus/denniz/
 #git clone https://github.com/liwhy1/android_device_oplus_denniz -b evox-10 device/oplus/denniz
 rm -rf kernel/oplus/mt6893
@@ -68,7 +68,6 @@ echo "=============="
 breakfast denniz userdebug
 make installclean
 mka bacon
-mka bootimage
 
 # Build non ksu boot image
 cd $cwd
