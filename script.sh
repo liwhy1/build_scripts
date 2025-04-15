@@ -74,7 +74,7 @@ cd $cwd
 echo "======================="
 echo "Building bootimage only"
 echo "======================="
-rm -rf kernel/oplus/mt6893/
-git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b lineage-22.1 kernel/oplus/mt6893
-breakfast denniz userdebug
-mka bootimage
+#rm -rf kernel/oplus/mt6893/
+#git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b lineage-22.1 kernel/oplus/mt6893
+#breakfast denniz userdebug
+#mka bootimage
