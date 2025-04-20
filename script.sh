@@ -54,7 +54,8 @@ fi
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b lineage-22.1_wip vendor/oplus/mt6893-common
 
 # Patch fsgen to fix conflicting lib issue
-sed -i '/soong_filesystem_creator {/a\    enabled: false,' build/soong/fsgen/Android.bp
+sed -i '/soong_filesystem_creator {/,/}/s/enabled: true/enabled: false/' build/soong/fsgen/Android.bp
+
 echo "===================="
 echo "Fsgen patch finished"
 echo "===================="
