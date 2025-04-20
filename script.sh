@@ -1,6 +1,6 @@
 #!/bin/bash
 
-syncing=false
+syncing=true
 cwd=$(pwd)
 
 if [ "$syncing" = true ]; then
@@ -42,16 +42,22 @@ else
 fi
 
 # Clone WIP trees
-rm -rf device/oplus/mt6893-common/
-git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.1_wip device/oplus/mt6893-common
-rm -rf device/oplus/denniz/
-git clone https://github.com/liwhy1/android_device_oplus_denniz -b lineage-22.1 device/oplus/denniz
+#rm -rf device/oplus/mt6893-common/
+#git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.1_wip device/oplus/mt6893-common
+#rm -rf device/oplus/denniz/
+#git clone https://github.com/liwhy1/android_device_oplus_denniz -b lineage-22.1 device/oplus/denniz
 #rm -rf kernel/oplus/mt6893
 #git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b kernelsu-next kernel/oplus/mt6893
-rm -rf vendor/oplus/denniz/
-git clone https://github.com/liwhy1/proprietary_vendor_oplus_denniz -b lineage-22.1_wip vendor/oplus/denniz
-rm -rf vendor/oplus/mt6893-common/
-git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b lineage-22.1_wip vendor/oplus/mt6893-common
+#rm -rf vendor/oplus/denniz/
+#git clone https://github.com/liwhy1/proprietary_vendor_oplus_denniz -b lineage-22.1_wip vendor/oplus/denniz
+#rm -rf vendor/oplus/mt6893-common/
+#git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b lineage-22.1_wip vendor/oplus/mt6893-common
+
+# Patch fsgen to fix conflicting lib issue
+sed -i '/soong_filesystem_creator {/a\    enabled: false,' build/soong/fsgen/Android.bp
+echo "===================="
+echo "Fsgen patch finished"
+echo "===================="
 
 # Set up build environment
 cd $cwd
@@ -74,7 +80,7 @@ cd $cwd
 echo "======================="
 echo "Building bootimage only"
 echo "======================="
-#rm -rf kernel/oplus/mt6893/
-#git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b lineage-22.1 kernel/oplus/mt6893
-#breakfast denniz userdebug
-#mka bootimage
+rm -rf kernel/oplus/mt6893/
+git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b lineage-22.1 kernel/oplus/mt6893
+breakfast denniz userdebug
+mka bootimage
