@@ -55,7 +55,6 @@ fi
 
 # Patch fsgen to fix conflicting lib issue
 sed -i '/soong_filesystem_creator {/,/}/s/enabled: true/enabled: false/' build/soong/fsgen/Android.bp
-
 echo "===================="
 echo "Fsgen patch finished"
 echo "===================="
