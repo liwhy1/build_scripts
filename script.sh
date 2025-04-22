@@ -56,7 +56,11 @@ git clone https://github.com/dek0der/kernel_realme_RMX3031 -b KSU-Next-SUSFS ker
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b lineage-22.1 vendor/oplus/mt6893-common
 
 # Patch fsgen to fix conflicting lib issue
-sed -i '/soong_filesystem_creator {/,/}/s/enabled: true/enabled: false/' build/soong/fsgen/Android.bp
+if awk '/soong_filesystem_creator {/,/}/ { if ($0 ~ /enabled:/) found=1 } END { exit !found }' build/soong/fsgen/Android.bp; then
+  sed -i '/soong_filesystem_creator {/,/}/s/enabled: true/enabled: false/' build/soong/fsgen/Android.bp
+else
+  awk '/soong_filesystem_creator {/{in_block=1} in_block&&/enabled:/{found=1} /}/&&in_block{if(!found)print "    enabled: false"; in_block=0} in_block&&/enabled: true/{sub(/enabled: true/,"enabled: false")} {print}' build/soong/fsgen/Android.bp > temp && mv temp build/soong/fsgen/Android.bp
+fi
 echo "===================="
 echo "Fsgen patch finished"
 echo "===================="
