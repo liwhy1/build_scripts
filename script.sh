@@ -55,9 +55,9 @@ git clone https://github.com/liwhy1/proprietary_vendor_oplus_denniz -b lineage-2
 
 # Patch fsgen to fix conflicting lib issue
 if awk '/soong_filesystem_creator {/,/}/ { if ($0 ~ /enabled:/) found=1 } END { exit !found }' build/soong/fsgen/Android.bp; then
-  sed -i '/soong_filesystem_creator {/,/}/s/enabled: true/enabled: false/' build/soong/fsgen/Android.bp
+  sed -i '/soong_filesystem_creator {/,/}/s/enabled: true/enabled: false,/' build/soong/fsgen/Android.bp
 else
-  awk '/soong_filesystem_creator {/{in_block=1} in_block&&/enabled:/{found=1} /}/&&in_block{if(!found)print "    enabled: false"; in_block=0} in_block&&/enabled: true/{sub(/enabled: true/,"enabled: false")} {print}' build/soong/fsgen/Android.bp > temp && mv temp build/soong/fsgen/Android.bp
+  awk '/soong_filesystem_creator {/{in_block=1} in_block&&/enabled:/{found=1} /}/&&in_block{if(!found)print "    enabled: false,"; in_block=0} in_block&&/enabled: true/{sub(/enabled: true/,"enabled: false,")} {print}' build/soong/fsgen/Android.bp > temp && mv temp build/soong/fsgen/Android.bp
 fi
 echo "===================="
 echo "Fsgen patch finished"
