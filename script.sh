@@ -72,7 +72,7 @@ echo "======================="
 echo "Building bootimage only"
 echo "======================="
 rm -rf kernel/oplus/mt6893/
-git clone http://github.com/dek0der/kernel_realme_RMX3031/ kernel/oplus/mt6893
+git clone http://github.com/dek0der/kernel_realme_RMX3031 -b KSU-Next-SUSFS kernel/oplus/mt6893
 . build/envsetup.sh
 breakfast denniz userdebug
 mka bootimage
