@@ -57,15 +57,25 @@ fi
 cd $cwd
 . build/envsetup.sh
 
-# Patch kernel
-#FILE="kernel/oplus/mt6893/KernelSU-Next/kernel/sucompat.c"
-#grep -q '^extern bool ksu_su_compat_enabled;$' "$FILE"
-#if [[ $? -eq 0 ]]; then
-#  sed -i '/^extern bool ksu_su_compat_enabled;$/a bool ksu_devpts_hook = false;' "$FILE"
-#  echo "Patch completed."
-#else
-#  echo "Patch failed."
-#fi
+# Kernel patch #1
+if grep -Fxq 'bool ksu_devpts_hook = false;' kernel/oplus/mt6893/KernelSU-Next/kernel/sucompat.c; then
+  echo "Kernel patch #1 already applied."
+else
+  if grep -Fxq 'extern bool ksu_su_compat_enabled;' kernel/oplus/mt6893/KernelSU-Next/kernel/sucompat.c; then
+    sed -i '/^extern bool ksu_su_compat_enabled;$/a bool ksu_devpts_hook = false;' kernel/oplus/mt6893/KernelSU-Next/kernel/sucompat.c
+    echo "Kernel patch #1 applied."
+  else
+    echo "Kernel patch #1 failed."
+  fi
+fi
+
+# Kernel patch #2
+if grep -Fxq 'extern bool susfs_is_sus_su_hooks_enabled __read_mostly;' kernel/oplus/mt6893/fs/susfs.c; then
+  echo "Kernel patch #2 already applied."
+else
+  sed -i 's/^bool susfs_is_sus_su_hooks_enabled __read_mostly = false;$/extern bool susfs_is_sus_su_hooks_enabled __read_mostly;/' kernel/oplus/mt6893/fs/susfs.c
+  echo "Kernel patch #2 applied."
+fi
 
 # Build signed
 cd $cwd
