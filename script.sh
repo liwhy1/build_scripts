@@ -50,32 +50,12 @@ fi
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_denniz -b lineage-22.2_cam vendor/oplus/denniz
 #rm -rf vendor/oplus/mt6893-common/
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b lineage-22.2 vendor/oplus/mt6893-common
-#rm -rf kernel/oplus/mt6893/
-#git clone http://github.com/dek0der/kernel_realme_RMX3031 -b KSU-Next-SUSFS kernel/oplus/mt6893
+rm -rf kernel/oplus/mt6893/
+git clone https://github.com/mt6893-development/android_kernel_oplus_mt6893 -b lineage-21 kernel/oplus/mt6893
 
 # Set up build environment
 cd $cwd
 . build/envsetup.sh
-
-# Kernel patch #1
-if grep -Fxq 'bool ksu_devpts_hook = false;' kernel/oplus/mt6893/KernelSU-Next/kernel/sucompat.c; then
-  echo "Kernel patch #1 already applied."
-else
-  if grep -Fxq 'extern bool ksu_su_compat_enabled;' kernel/oplus/mt6893/KernelSU-Next/kernel/sucompat.c; then
-    sed -i '/^extern bool ksu_su_compat_enabled;$/a bool ksu_devpts_hook = false;' kernel/oplus/mt6893/KernelSU-Next/kernel/sucompat.c
-    echo "Kernel patch #1 applied."
-  else
-    echo "Kernel patch #1 failed."
-  fi
-fi
-
-# Kernel patch #2
-if grep -Fxq 'extern bool susfs_is_sus_su_hooks_enabled __read_mostly;' kernel/oplus/mt6893/fs/susfs.c; then
-  echo "Kernel patch #2 already applied."
-else
-  sed -i 's/^bool susfs_is_sus_su_hooks_enabled __read_mostly = false;$/extern bool susfs_is_sus_su_hooks_enabled __read_mostly;/' kernel/oplus/mt6893/fs/susfs.c
-  echo "Kernel patch #2 applied."
-fi
 
 # Build signed
 cd $cwd
