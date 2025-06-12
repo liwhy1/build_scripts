@@ -46,10 +46,10 @@ fi
 #git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.2 device/oplus/mt6893-common
 #rm -rf device/oplus/denniz/
 #git clone https://github.com/liwhy1/android_device_oplus_denniz -b evox-10 device/oplus/denniz
-#rm -rf vendor/oplus/denniz/
-#git clone https://github.com/liwhy1/proprietary_vendor_oplus_denniz -b lineage-22.2_cam vendor/oplus/denniz
+rm -rf vendor/oplus/denniz/
+git clone https://github.com/liwhy1/proprietary_vendor_oplus_denniz -b lineage-22.2_cam vendor/oplus/denniz
 rm -rf vendor/oplus/mt6893-common/
-git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b lineage-22.2_wip vendor/oplus/mt6893-common
+git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b lineage-22.2 vendor/oplus/mt6893-common
 #rm -rf kernel/oplus/mt6893/
 #git clone https://github.com/soulspark666/kernel_oplus_mt6893 -b kernelsu-next kernel/oplus/mt6893
 
