@@ -67,3 +67,11 @@ echo "=============="
 breakfast denniz userdebug
 make installclean
 m evolution
+
+cd $cwd
+echo "======================="
+echo "Building bootimage only"
+echo "======================="
+rm -rf kernel/oplus/mt6893/
+git clone https://github.com/mt6893-development/android_kernel_oplus_mt6893 kernel/oplus/mt6893
+mka bootimage
