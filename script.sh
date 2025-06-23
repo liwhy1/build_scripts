@@ -54,6 +54,9 @@ fi
 #git clone https://github.com/soulspark666/kernel_oplus_mt6893 -b kernelsu-next kernel/oplus/mt6893
 #rm -rf device/oplus/camera/
 #git clone https://gitlab.com/liwhy1/android_device_oplus_camera -b lineage-22.1_wip device/oplus/camera
+rm -rf vendor/lineage
+git clone https://github.com/Evolution-X/vendor_evolution -b vic vendor/lineage
+
 
 # Set up build environment
 cd $cwd
@@ -73,6 +76,6 @@ echo "======================="
 echo "Building bootimage only"
 echo "======================="
 rm -rf kernel/oplus/mt6893/
-git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b kernelsu-next kernel/oplus/mt6893
+git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b ksu-next-susfs kernel/oplus/mt6893
 . build/envsetup.sh
 mka bootimage
