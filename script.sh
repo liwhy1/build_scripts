@@ -1,6 +1,6 @@
 #!/bin/bash
 
-syncing=true
+syncing=false
 cwd=$(pwd)
 
 if [ "$syncing" = true ]; then
@@ -50,8 +50,8 @@ fi
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_denniz -b lineage-22.2 vendor/oplus/denniz
 #rm -rf vendor/oplus/mt6893-common/
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b lineage-22.2 vendor/oplus/mt6893-common
-#rm -rf kernel/oplus/mt6893/
-#git clone https://github.com/soulspark666/kernel_oplus_mt6893 -b kernelsu-next kernel/oplus/mt6893
+rm -rf kernel/oplus/mt6893/
+git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b ksu_next_susfs kernel/oplus/mt6893
 #rm -rf vendor/oplus/camera
 #git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b lineage-22.1_wip vendor/oplus/camera
 
@@ -66,7 +66,7 @@ echo "Starting build"
 echo "=============="
 breakfast denniz userdebug
 make installclean
-mka bacon
+mka bootimage
 
 # Build non ksu boot image
 #cd $cwd
@@ -74,5 +74,6 @@ mka bacon
 #echo "Building bootimage only"
 #echo "======================="
 #rm -rf kernel/oplus/mt6893/
-#git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b lineage-22.1 kernel/oplus/mt6893
+#git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b ksu_next_susfs kernel/oplus/mt6893
+#. build/envsetup.sh
 #mka bootimage
