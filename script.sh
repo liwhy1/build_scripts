@@ -8,12 +8,15 @@ if [ "$syncing" = true ]; then
 	rm -rf .repo/local_manifests
 	rm -rf {device,vendor,kernel}/oplus
 	rm -rf vendor/*-priv/keys
+	rm -rf vendor/*
+	rm -rf .repo/projects/*vendor*
+	rm -rf .repo/project-objects/LineageOS/*vendor*
 	echo "============================="
 	echo "Old directory removal finished"
 	echo "============================="
 
 	# Init ROM manifest
-	repo init -u https://github.com/Evolution-X/manifest -b vic --git-lfs
+	repo init -u https://github.com/Evolution-X/manifest -b bka --git-lfs
 	echo "=========================="
 	echo "ROM manifest init finished"
 	echo "=========================="
@@ -50,12 +53,10 @@ fi
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_denniz -b lineage-22.2_cam vendor/oplus/denniz
 #rm -rf vendor/oplus/mt6893-common/
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b lineage-22.2 vendor/oplus/mt6893-common
-#rm -rf kernel/oplus/mt6893/
-#git clone https://github.com/soulspark666/kernel_oplus_mt6893 -b kernelsu-next kernel/oplus/mt6893
+rm -rf kernel/oplus/mt6893/
+git clone https://github.com/mt6893-development/android_kernel_oplus_mt6893 -b lineage-23 kernel/oplus/mt6893
 #rm -rf device/oplus/camera/
 #git clone https://gitlab.com/liwhy1/android_device_oplus_camera -b lineage-22.1_wip device/oplus/camera
-rm -rf vendor/lineage
-git clone https://github.com/Evolution-X/vendor_evolution -b vic vendor/lineage
 
 
 # Set up build environment
@@ -71,11 +72,11 @@ breakfast denniz userdebug
 make installclean
 m evolution
 
-cd $cwd
-echo "======================="
-echo "Building bootimage only"
-echo "======================="
-rm -rf kernel/oplus/mt6893/
-git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b ksu-next-susfs kernel/oplus/mt6893
-. build/envsetup.sh
-mka bootimage
+#cd $cwd
+#echo "======================="
+#echo "Building bootimage only"
+#echo "======================="
+#rm -rf kernel/oplus/mt6893/
+#git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b ksu-next-susfs kernel/oplus/mt6893
+#. build/envsetup.sh
+#mka bootimage
