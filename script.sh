@@ -8,9 +8,6 @@ if [ "$syncing" = true ]; then
 	rm -rf .repo/local_manifests
 	rm -rf {device,vendor,kernel}/oplus
 	rm -rf vendor/*-priv/keys
-	rm -rf vendor/*
-	rm -rf .repo/projects/*vendor*
-	rm -rf .repo/project-objects/LineageOS/*vendor*
 	echo "============================="
 	echo "Old directory removal finished"
 	echo "============================="
@@ -54,7 +51,7 @@ fi
 #rm -rf vendor/oplus/mt6893-common/
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b lineage-22.2 vendor/oplus/mt6893-common
 rm -rf kernel/oplus/mt6893/
-git clone https://github.com/mt6893-development/android_kernel_oplus_mt6893 -b lineage-23 kernel/oplus/mt6893
+git clone https://github.com/mt6893-development/android_kernel_oplus_mt6893 -b lineage-23 kernel/oplus/mt6893 --depth=1
 #rm -rf device/oplus/camera/
 #git clone https://gitlab.com/liwhy1/android_device_oplus_camera -b lineage-22.1_wip device/oplus/camera
 
