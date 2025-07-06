@@ -1,6 +1,6 @@
 #!/bin/bash
 
-syncing=false
+syncing=true
 cwd=$(pwd)
 
 if [ "$syncing" = true ]; then
@@ -42,8 +42,8 @@ else
 fi
 
 # Clone WIP trees
-#rm -rf device/oplus/mt6893-common/
-#git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.2_wip device/oplus/mt6893-common
+rm -rf device/oplus/mt6893-common/
+git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.2_wip device/oplus/mt6893-common
 #rm -rf device/oplus/denniz/
 #git clone https://github.com/liwhy1/android_device_oplus_denniz -b lineage-22.2 device/oplus/denniz
 #rm -rf vendor/oplus/denniz/
