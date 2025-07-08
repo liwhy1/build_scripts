@@ -42,10 +42,10 @@ else
 fi
 
 # Clone WIP trees
-rm -rf device/oplus/mt6893-common/
-git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.2_wip device/oplus/mt6893-common --depth 1
-#rm -rf device/oplus/denniz/
-#git clone https://github.com/liwhy1/android_device_oplus_denniz -b lineage-22.2 device/oplus/denniz --depth 1
+#rm -rf device/oplus/mt6893-common/
+#git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.2_wip device/oplus/mt6893-common --depth 1
+rm -rf device/oplus/denniz/
+git clone https://github.com/liwhy1/android_device_oplus_denniz -b lineage-22.2 device/oplus/denniz --depth 1
 #rm -rf vendor/oplus/denniz/
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_denniz -b lineage-22.2 vendor/oplus/denniz --depth 1
 #rm -rf vendor/oplus/mt6893-common/
@@ -61,6 +61,8 @@ git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineag
 #cd external/wpa_supplicant_8
 #git fetch https://github.com/Adarsh0127-Elite/android_external_wpa_supplicant_8 252a7ddfdeab428bcb78c7f1dd170db814ee7687
 #git cherry-pick 252a7ddfdeab428bcb78c7f1dd170db814ee7687
+
+rm -rf prebuilts/clang/host/linux-x86/clang-r487747c
 
 # Set up build environment
 cd $cwd
