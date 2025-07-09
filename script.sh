@@ -42,8 +42,8 @@ else
 fi
 
 # Clone WIP trees
-#rm -rf device/oplus/mt6893-common/
-#git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.2_wip device/oplus/mt6893-common --depth 1
+rm -rf device/oplus/mt6893-common/
+git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.2_wip device/oplus/mt6893-common --depth 1
 #rm -rf device/oplus/denniz/
 #git clone https://github.com/liwhy1/android_device_oplus_denniz -b lineage-22.2 device/oplus/denniz --depth 1
 #rm -rf vendor/oplus/denniz/
@@ -52,8 +52,8 @@ fi
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b lineage-22.2_wip vendor/oplus/mt6893-common --depth 1
 #rm -rf kernel/oplus/mt6893/
 #git clone https://github.com/mt6893-development/android_kernel_oplus_mt6893 -b lineage-22.2 kernel/oplus/mt6893 --depth 1
-rm -rf vendor/oplus/camera
-git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b lineage-22.1_wip vendor/oplus/camera --depth 1
+#rm -rf vendor/oplus/camera
+#git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b lineage-22.1_wip vendor/oplus/camera --depth 1
 
 # WPA3 fix
 #rm -rf external/wpa_supplicant_8
