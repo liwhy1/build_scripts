@@ -57,6 +57,8 @@ git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b li
 rm -rf vendor/oplus/camera/
 git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b lineage-22.1_wip vendor/oplus/camera
 
+rm -rf prebuilts/clang/host/linux-x86/clang-r547379
+
 
 # Set up build environment
 cd $cwd
