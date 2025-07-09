@@ -1,6 +1,6 @@
 #!/bin/bash
 
-syncing=false
+syncing=true
 cwd=$(pwd)
 
 if [ "$syncing" = true ]; then
@@ -8,6 +8,8 @@ if [ "$syncing" = true ]; then
 	rm -rf .repo/local_manifests
 	rm -rf {device,vendor,kernel}/oplus
 	rm -rf vendor/*-priv/keys
+	rm -rf prebuilts/clang/host/linux-x86/
+	rm -rf .repo/projects/prebuilts/*clang*
 	echo "============================="
 	echo "Old directory removal finished"
 	echo "============================="
@@ -42,8 +44,8 @@ else
 fi
 
 # Clone WIP trees
-#rm -rf device/oplus/mt6893-common/
-#git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.2 device/oplus/mt6893-common
+rm -rf device/oplus/mt6893-common/
+git clone https://github.com/liwhy1/android_device_oplus_mt6893-common -b lineage-22.2_wip device/oplus/mt6893-common
 #rm -rf device/oplus/denniz/
 #git clone https://github.com/liwhy1/android_device_oplus_denniz -b evox-10 device/oplus/denniz
 #rm -rf vendor/oplus/denniz/
@@ -53,7 +55,7 @@ git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b li
 #rm -rf kernel/oplus/mt6893/
 #git clone https://github.com/mt6893-development/android_kernel_oplus_mt6893 -b lineage-23 kernel/oplus/mt6893 --depth=1
 rm -rf vendor/oplus/camera/
-#git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b lineage-22.1_wip vendor/oplus/camera
+git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b lineage-22.1_wip vendor/oplus/camera
 
 
 # Set up build environment
