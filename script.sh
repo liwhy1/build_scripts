@@ -9,9 +9,9 @@ if [ "$syncing" = true ]; then
 	rm -rf {device,vendor,kernel}/oplus
 	rm -rf vendor/*-priv/keys
         rm -rf prebuilts/clang-tools
-	rm -rf prebuilts/clang/host/linux-x86/
-	rm -rf platform/prebuilts/jdk/jdk8
-        rm -rf .repo/projects/LineageOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b
+	rm -rf prebuilts/clang/host/linux-x86
+	rm -rf prebuilts/jdk
+        rm -rf .repo/projects/LineageOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b*
 	rm -rf trusty/vendor/google
 	echo "============================="
 	echo "Old directory removal finished"
