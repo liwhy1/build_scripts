@@ -8,11 +8,8 @@ if [ "$syncing" = true ]; then
 	rm -rf .repo/local_manifests
 	rm -rf {device,vendor,kernel}/oplus
 	rm -rf vendor/*-priv/keys
-        rm -rf prebuilts/clang-tools
-	rm -rf prebuilts/clang/host/linux-x86
-	rm -rf prebuilts/jdk
-        rm -rf .repo/projects/LineageOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b*
-	rm -rf trusty/vendor/google
+	rm -rf prebuilts/*clang*
+	rm -rf external/*clang*
 	echo "============================="
 	echo "Old directory removal finished"
 	echo "============================="
@@ -60,8 +57,8 @@ git clone https://github.com/liwhy1/proprietary_vendor_oplus_mt6893-common -b li
 rm -rf vendor/oplus/camera/
 git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b lineage-22.1_wip vendor/oplus/camera
 
-rm -rf prebuilts/clang/host/linux-x86/clang-r547379
-
+rm -rf prebuilts/clang/kernel/linux-x86/clang-r416183b
+git clone https://github.com/LineageOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b prebuilts/clang/kernel/linux-x86/clang-r416183b
 
 # Set up build environment
 cd $cwd
