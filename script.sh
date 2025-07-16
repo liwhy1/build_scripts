@@ -8,6 +8,7 @@ if [ "$syncing" = true ]; then
 	rm -rf .repo/local_manifests
 	rm -rf {device,vendor,kernel}/oplus
 	rm -rf vendor/*-priv/keys
+	rm -rf prebuilts/clang
 	echo "============================="
 	echo "Old directory removal finished"
 	echo "============================="
