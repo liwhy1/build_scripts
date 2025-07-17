@@ -62,8 +62,8 @@ git clone https://github.com/LineageOS/android_external_wpa_supplicant_8 -b line
 #git cherry-pick 252a7ddfdeab428bcb78c7f1dd170db814ee7687
 
 # SEPolicy fix
-#rm -rf device/mediatek/sepolicy_vndr
-#git clone https://github.com/liwhy1/android_device_mediatek_sepolicy_vndr device/mediatek/sepolicy_vndr --depth=1
+rm -rf device/mediatek/sepolicy_vndr
+git clone https://github.com/liwhy1/android_device_mediatek_sepolicy_vndr device/mediatek/sepolicy_vndr --depth=1
 
 # Set up build environment
 cd $cwd
