@@ -57,9 +57,9 @@ git clone https://github.com/liwhy1/android_device_oplus_MT6893 -b evox-11 devic
 # WPA3 fix
 rm -rf external/wpa_supplicant_8
 git clone https://github.com/LineageOS/android_external_wpa_supplicant_8 -b lineage-23 external/wpa_supplicant_8 --depth 1
-#cd external/wpa_supplicant_8
-#git fetch https://github.com/Adarsh0127-Elite/android_external_wpa_supplicant_8 252a7ddfdeab428bcb78c7f1dd170db814ee7687
-#git cherry-pick 252a7ddfdeab428bcb78c7f1dd170db814ee7687
+cd external/wpa_supplicant_8
+git fetch https://github.com/Adarsh0127-Elite/android_external_wpa_supplicant_8 252a7ddfdeab428bcb78c7f1dd170db814ee7687
+git cherry-pick 252a7ddfdeab428bcb78c7f1dd170db814ee7687
 
 # SEPolicy fix
 rm -rf device/mediatek/sepolicy_vndr
