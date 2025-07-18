@@ -44,6 +44,7 @@ else
 fi
 
 # Clone WIP trees
+rm -rf out/target/product/denniz
 rm -rf device/oplus/MT6893/
 git clone https://github.com/liwhy1/android_device_oplus_MT6893 -b evox-11 device/oplus/MT6893 --depth=1
 #rm -rf vendor/oplus/MT6893/
