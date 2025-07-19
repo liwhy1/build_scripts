@@ -1,6 +1,6 @@
 #!/bin/bash
 
-syncing=false
+syncing=true
 cwd=$(pwd)
 
 if [ "$syncing" = true ]; then
@@ -10,6 +10,7 @@ if [ "$syncing" = true ]; then
 	rm -rf vendor/*-priv/keys
 	rm -rf prebuilts/*clang*
 	rm -rf external/*clang*
+	rm -rf device/mediatek/sepolicy_vndr
 	echo "============================="
 	echo "Old directory removal finished"
 	echo "============================="
@@ -44,9 +45,8 @@ else
 fi
 
 # Clone WIP trees
-rm -rf out/target/product/denniz
-rm -rf device/oplus/MT6893/
-git clone https://github.com/liwhy1/android_device_oplus_MT6893 -b evox-11 device/oplus/MT6893 --depth=1
+#rm -rf device/oplus/MT6893/
+#git clone https://github.com/liwhy1/android_device_oplus_MT6893 -b evox-11 device/oplus/MT6893 --depth=1
 #rm -rf vendor/oplus/MT6893/
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_MT6893 -b lineage-23 vendor/oplus/MT6893 --depth=1
 #rm -rf kernel/oplus/mt6893/
@@ -54,18 +54,13 @@ git clone https://github.com/liwhy1/android_device_oplus_MT6893 -b evox-11 devic
 #rm -rf vendor/oplus/camera/
 #git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b lineage-22.2 vendor/oplus/camera --depth=1
 
-# Fixes
-# SEPolicy fix
-#rm -rf device/mediatek/sepolicy_vndr
-#git clone https://github.com/liwhy1/android_device_mediatek_sepolicy_vndr device/mediatek/sepolicy_vndr --depth=1
-
 # WPA3 fix
-#rm -rf external/wpa_supplicant_8
-#git clone https://github.com/LineageOS/android_external_wpa_supplicant_8 -b lineage-23.0 external/wpa_supplicant_8 --depth 1
-#cd external/wpa_supplicant_8
-#git fetch https://github.com/Adarsh0127-Elite/android_external_wpa_supplicant_8 252a7ddfdeab428bcb78c7f1dd170db814ee7687
-#git cherry-pick 252a7ddfdeab428bcb78c7f1dd170db814ee7687
-#cd -
+rm -rf external/wpa_supplicant_8
+git clone https://github.com/LineageOS/android_external_wpa_supplicant_8 -b lineage-23.0 external/wpa_supplicant_8 --depth 1
+cd external/wpa_supplicant_8
+git fetch https://github.com/Adarsh0127-Elite/android_external_wpa_supplicant_8 252a7ddfdeab428bcb78c7f1dd170db814ee7687
+git cherry-pick 252a7ddfdeab428bcb78c7f1dd170db814ee7687
+cd -
 
 # Set up build environment
 cd $cwd
