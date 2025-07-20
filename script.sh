@@ -53,8 +53,6 @@ fi
 #git clone https://github.com/mt6893-development/android_kernel_oplus_mt6893 -b lineage-22.2 kernel/oplus/mt6893 --depth=1
 #rm -rf vendor/oplus/camera/
 #git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b lineage-22.2 vendor/oplus/camera --depth=1
-rm -rf vendor/*-priv/keys
-git clone https://github.com/liwhy1/build_scripts -b evolution_keys vendor/evolution-priv/keys
 
 # Set up build environment
 cd $cwd
