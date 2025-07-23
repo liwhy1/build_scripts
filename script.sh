@@ -11,6 +11,7 @@ if [ "$syncing" = true ]; then
 	rm -rf prebuilts/*clang*
 	rm -rf external/*clang*
 	rm -rf external/wpa_supplicant_8
+	rm -rf device/mediatek/sepolicy_vndr
 	echo "============================="
 	echo "Old directory removal finished"
 	echo "============================="
