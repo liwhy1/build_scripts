@@ -1,6 +1,6 @@
 #!/bin/bash
 
-syncing=true
+syncing=false
 cwd=$(pwd)
 
 if [ "$syncing" = true ]; then
@@ -46,14 +46,19 @@ else
 fi
 
 # Clone WIP trees
-rm -rf device/oplus/MT6893/
-git clone https://github.com/liwhy1/android_device_oplus_MT6893 -b evox-11 device/oplus/MT6893 --depth=1
+#rm -rf device/oplus/MT6893/
+#git clone https://github.com/liwhy1/android_device_oplus_MT6893 -b evox-11 device/oplus/MT6893 --depth=1
 #rm -rf vendor/oplus/MT6893/
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_MT6893 -b lineage-23 vendor/oplus/MT6893 --depth=1
 #rm -rf kernel/oplus/mt6893/
 #git clone https://github.com/mt6893-development/android_kernel_oplus_mt6893 -b lineage-22.2 kernel/oplus/mt6893 --depth=1
 #rm -rf vendor/oplus/camera/
 #git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b lineage-22.2 vendor/oplus/camera --depth=1
+
+cd frameworks/base/packages/SystemUI/src/com/android/systemui/biometrics
+git fetch https://github.com/liwhy1/android_frameworks_base 3fd8caa27a33c85124d0bef815f5f450f88f3515
+git cherry-pick 3fd8caa27a33c85124d0bef815f5f450f88f3515
+cd -
 
 # Set up build environment
 cd $cwd
