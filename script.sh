@@ -55,9 +55,10 @@ fi
 #rm -rf vendor/oplus/camera/
 #git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b lineage-22.2 vendor/oplus/camera --depth=1
 
-cd frameworks/base/packages/SystemUI/src/com/android/systemui/biometrics
-git fetch https://github.com/liwhy1/android_frameworks_base 65c3ff76c986dc879febdd2e09bf886cff9d8c8c
-git cherry-pick 65c3ff76c986dc879febdd2e09bf886cff9d8c8c
+cd frameworks/base/packages/SystemUI/src/com/android/systemui
+git reset --hard
+git fetch https://github.com/liwhy1/android_frameworks_base 3ff1cf61cce7038824e41785fd6c897065dbaf36
+git cherry-pick 3ff1cf61cce7038824e41785fd6c897065dbaf36 --allow-empty a1b2c3d4
 cd -
 
 # Set up build environment
