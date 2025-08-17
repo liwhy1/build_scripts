@@ -1,6 +1,6 @@
 #!/bin/bash
 
-syncing=false
+syncing=true
 cwd=$(pwd)
 
 if [ "$syncing" = true ]; then
@@ -12,6 +12,7 @@ if [ "$syncing" = true ]; then
 	rm -rf external/*clang*
 	rm -rf external/wpa_supplicant_8
 	rm -rf device/mediatek/sepolicy_vndr
+	rm -rf frameworks/base/packages/SystemUI
 	echo "============================="
 	echo "Old directory removal finished"
 	echo "============================="
@@ -46,8 +47,8 @@ else
 fi
 
 # Clone WIP trees
-rm -rf device/oplus/MT6893/
-git clone https://github.com/liwhy1/android_device_oplus_MT6893 -b evox-11 device/oplus/MT6893 --depth=1
+#rm -rf device/oplus/MT6893/
+#git clone https://github.com/liwhy1/android_device_oplus_MT6893 -b evox-11 device/oplus/MT6893 --depth=1
 #rm -rf vendor/oplus/MT6893/
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_MT6893 -b lineage-23 vendor/oplus/MT6893 --depth=1
 #rm -rf kernel/oplus/mt6893/
@@ -58,7 +59,7 @@ git clone https://github.com/liwhy1/android_device_oplus_MT6893 -b evox-11 devic
 cd frameworks/base/packages/SystemUI/src/com/android/systemui
 git reset --hard
 git fetch https://github.com/liwhy1/android_frameworks_base 3ff1cf61cce7038824e41785fd6c897065dbaf36
-git cherry-pick 3ff1cf61cce7038824e41785fd6c897065dbaf36 --allow-empty a1b2c3d4
+git cherry-pick 3ff1cf61cce7038824e41785fd6c897065dbaf36
 cd -
 
 # Set up build environment
