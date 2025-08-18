@@ -12,7 +12,6 @@ if [ "$syncing" = true ]; then
 	rm -rf external/*clang*
 	rm -rf external/wpa_supplicant_8
 	rm -rf device/mediatek/sepolicy_vndr
-	rm -rf frameworks/base/packages/SystemUI
 	echo "============================="
 	echo "Old directory removal finished"
 	echo "============================="
@@ -58,8 +57,8 @@ fi
 
 cd frameworks/base/packages/SystemUI/src/com/android/systemui
 git reset --hard
-git fetch https://github.com/liwhy1/android_frameworks_base 3ff1cf61cce7038824e41785fd6c897065dbaf36
-git cherry-pick 3ff1cf61cce7038824e41785fd6c897065dbaf36
+git fetch https://github.com/liwhy1/android_frameworks_base 102493a594e9d6e47296f64a91b9a9b32dd09b11
+git cherry-pick 102493a594e9d6e47296f64a91b9a9b32dd09b11
 cd -
 
 # Set up build environment
