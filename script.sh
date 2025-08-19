@@ -56,9 +56,9 @@ fi
 #git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b lineage-22.2 vendor/oplus/camera --depth=1
 
 cd frameworks/base/packages/SystemUI/src/com/android/systemui
-git reset --hard
-git fetch https://github.com/liwhy1/android_frameworks_base 102493a594e9d6e47296f64a91b9a9b32dd09b11
-git cherry-pick 102493a594e9d6e47296f64a91b9a9b32dd09b11
+git switch bka
+git fetch https://github.com/liwhy1/android_frameworks_base 1fee1ccd30c74ad6d5657d258ecb372aa89b92db
+git cherry-pick 1fee1ccd30c74ad6d5657d258ecb372aa89b92db
 cd -
 
 # Set up build environment
