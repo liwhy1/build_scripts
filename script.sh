@@ -1,6 +1,6 @@
 #!/bin/bash
 
-syncing=true
+syncing=false
 cwd=$(pwd)
 
 if [ "$syncing" = true ]; then
@@ -57,8 +57,8 @@ fi
 
 cd frameworks/base/packages/SystemUI/src/com/android/systemui
 git switch bka
-git fetch https://github.com/liwhy1/android_frameworks_base 1fee1ccd30c74ad6d5657d258ecb372aa89b92db
-git cherry-pick 1fee1ccd30c74ad6d5657d258ecb372aa89b92db
+git fetch https://github.com/liwhy1/android_frameworks_base e111a25a103f70e3e049575aceba07d0c7a9e356
+git cherry-pick e111a25a103f70e3e049575aceba07d0c7a9e356
 cd -
 
 # Set up build environment
