@@ -1,6 +1,6 @@
 #!/bin/bash
 
-syncing=false
+syncing=true
 cwd=$(pwd)
 
 if [ "$syncing" = true ]; then
@@ -12,6 +12,7 @@ if [ "$syncing" = true ]; then
 	rm -rf external/*clang*
 	rm -rf external/wpa_supplicant_8
 	rm -rf device/mediatek/sepolicy_vndr
+	rm -rf frameworks/base/packages/SystemUI/src/com/android/systemui/biometrics
 	echo "============================="
 	echo "Old directory removal finished"
 	echo "============================="
@@ -56,8 +57,6 @@ fi
 #git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b lineage-22.2 vendor/oplus/camera --depth=1
 
 cd frameworks/base
-git switch bka
-git restore .
 git fetch https://github.com/liwhy1/android_frameworks_base 3bda23177297aefeb5b9db23be544af7b83da758
 git cherry-pick 3bda23177297aefeb5b9db23be544af7b83da758
 cd -
