@@ -70,7 +70,7 @@ cd $cwd
 echo "=============="
 echo "Starting build"
 echo "=============="
-breakfast MT6893 userdebug
+breakfast MT6893 user
 make installclean
 m evolution
 
