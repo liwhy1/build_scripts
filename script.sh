@@ -5,6 +5,9 @@ cwd=$(pwd)
 
 if [ "$syncing" = true ]; then
 	# Clear folders
+	echo "=========================="
+	echo "Removing old directories.."
+	echo "=========================="
 	rm -rf .repo/local_manifests
 	rm -rf {device,vendor,kernel}/oplus
 	rm -rf vendor/*-priv/keys
@@ -12,38 +15,45 @@ if [ "$syncing" = true ]; then
 	rm -rf external/*clang*
 	rm -rf external/wpa_supplicant_8
 	rm -rf device/mediatek/sepolicy_vndr
-	rm -rf frameworks/base/packages/SystemUI/src/com/android/systemui/biometrics
-	echo "============================="
-	echo "Old directory removal finished"
-	echo "============================="
 
 	# Init ROM manifest
+	echo "==========================="
+	echo "Initializing ROM manifest.."
+	echo "==========================="
 	repo init -u https://github.com/Evolution-X/manifest -b bka --git-lfs
-	echo "=========================="
-	echo "ROM manifest init finished"
-	echo "=========================="
 
 	# Clone local manifest
-	git clone https://github.com/liwhy1/local_manifests -b evox-11 .repo/local_manifests
-	echo "============================="
-	echo "Local manifest clone finished"
-	echo "============================="
+	echo "========================"
+	echo "Cloning local manifest.."
+	echo "========================"
+	git clone https://github.com/liwhy1/local_manifests -b evox-11 .repo/local_manifests --depth=1
 
 	# Clone signing keys
-	git clone https://github.com/liwhy1/build_scripts -b evolution_keys vendor/evolution-priv/keys
-	echo "==========================="
-	echo "Signing keys clone finished"
-	echo "==========================="
+	echo "======================"
+	echo "Cloning signing keys.."
+	echo "======================"
+	git clone https://github.com/liwhy1/build_scripts -b evolution_keys vendor/evolution-priv/keys --depth=1
 
 	# Sync
+	echo "============================"
+	echo "Synchronizing repositories.."
+	echo "============================"
 	/opt/crave/resync.sh
-	echo "============="
-	echo "Sync finished"
-	echo "============="
+	
+	# Patches
+	echo "=================="
+	echo "Applying patches.."
+	echo "=================="
+	cd frameworks/base
+	git fetch https://github.com/Evolution-X/frameworks_base
+	git reset --hard FETCH_HEAD && git clean -fd
+	git fetch https://github.com/liwhy1/frameworks_base
+	git cherry-pick 2de218394de334414d37e6803cee26cba705d616
+	cd -
 else
-	echo "============="
-	echo "Skipping sync"
-	echo "============="
+	echo "==============="
+	echo "Skipping sync.."
+	echo "==============="
 fi
 
 # Clone WIP trees
@@ -56,28 +66,23 @@ fi
 #rm -rf vendor/oplus/camera/
 #git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b lineage-22.2 vendor/oplus/camera --depth=1
 
-cd frameworks/base
-git fetch https://github.com/liwhy1/frameworks_base 2de218394de334414d37e6803cee26cba705d616
-git cherry-pick 2de218394de334414d37e6803cee26cba705d616
-cd -
-
 # Set up build environment
 cd $cwd
 . build/envsetup.sh
 
 # Build signed
+echo "================"
+echo "Starting build.."
+echo "================"
 cd $cwd
-echo "=============="
-echo "Starting build"
-echo "=============="
 breakfast MT6893 user
 make installclean
 m evolution
 
 #cd $cwd
-#echo "======================="
-#echo "Building bootimage only"
-#echo "======================="
+#echo "========================="
+#echo "Building bootimage only.."
+#echo "========================="
 #rm -rf kernel/oplus/mt6893/
 #git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b ksu-next-susfs kernel/oplus/mt6893
 #. build/envsetup.sh
