@@ -57,8 +57,8 @@ fi
 #git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b lineage-22.2 vendor/oplus/camera --depth=1
 
 cd frameworks/base
-git fetch https://github.com/liwhy1/android_frameworks_base 3bda23177297aefeb5b9db23be544af7b83da758
-git cherry-pick 3bda23177297aefeb5b9db23be544af7b83da758
+git fetch https://github.com/liwhy1/frameworks_base 2de218394de334414d37e6803cee26cba705d616
+git cherry-pick 2de218394de334414d37e6803cee26cba705d616
 cd -
 
 # Set up build environment
