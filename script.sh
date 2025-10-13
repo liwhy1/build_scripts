@@ -18,10 +18,6 @@ if [ "$sync" = true ]; then
 	rm -rf external/*clang*
 	rm -rf external/wpa_supplicant_8
 	rm -rf device/mediatek/sepolicy_vndr
-	cd frameworks/base
-	git fetch https://github.com/Evolution-X/frameworks_base
-	git reset --hard FETCH_HEAD && git clean -fd
-	cd -
 
 	# Init ROM manifest
 	echo "==========================="
@@ -59,6 +55,8 @@ if [ "$sync" = true ]; then
 		echo "Applying patches.."
 		echo "=================="
 		cd frameworks/base
+		git fetch https://github.com/Evolution-X/frameworks_base
+		git reset --hard FETCH_HEAD && git clean -fd
 		git fetch https://github.com/liwhy1/frameworks_base
 		git cherry-pick 2de218394de334414d37e6803cee26cba705d616
 		cd -
