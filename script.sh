@@ -1,9 +1,12 @@
 #!/bin/bash
 
-syncing=true
+# Vars
+sync=true
+sign=true
+patch=false
 cwd=$(pwd)
 
-if [ "$syncing" = true ]; then
+if [ "$sync" = true ]; then
 	# Clear folders
 	echo "=========================="
 	echo "Removing old directories.."
@@ -15,6 +18,10 @@ if [ "$syncing" = true ]; then
 	rm -rf external/*clang*
 	rm -rf external/wpa_supplicant_8
 	rm -rf device/mediatek/sepolicy_vndr
+	cd frameworks/base
+	git fetch https://github.com/Evolution-X/frameworks_base
+	git reset --hard FETCH_HEAD && git clean -fd
+	cd -
 
 	# Init ROM manifest
 	echo "==========================="
@@ -29,27 +36,37 @@ if [ "$syncing" = true ]; then
 	git clone https://github.com/liwhy1/local_manifests -b evox-11 .repo/local_manifests --depth=1
 
 	# Clone signing keys
-	echo "======================"
-	echo "Cloning signing keys.."
-	echo "======================"
-	git clone https://github.com/liwhy1/build_scripts -b evolution_keys vendor/evolution-priv/keys --depth=1
+	if [ "$sign" = true ]; then
+		echo "======================"
+		echo "Cloning signing keys.."
+		echo "======================"
+		git clone https://github.com/liwhy1/build_scripts -b evolution_keys vendor/evolution-priv/keys --depth=1
+	else
+		echo "=================="
+		echo "Skipping signing.."
+		echo "=================="
+	fi
 
 	# Sync
 	echo "============================"
 	echo "Synchronizing repositories.."
 	echo "============================"
 	/opt/crave/resync.sh
-	
-	# Patches
-	echo "=================="
-	echo "Applying patches.."
-	echo "=================="
-	cd frameworks/base
-	git fetch https://github.com/Evolution-X/frameworks_base
-	git reset --hard FETCH_HEAD && git clean -fd
-	git fetch https://github.com/liwhy1/frameworks_base
-	git cherry-pick 2de218394de334414d37e6803cee26cba705d616
-	cd -
+
+	# Apply patches
+	if [ "$patch" = true ]; then
+		echo "=================="
+		echo "Applying patches.."
+		echo "=================="
+		cd frameworks/base
+		git fetch https://github.com/liwhy1/frameworks_base
+		git cherry-pick 2de218394de334414d37e6803cee26cba705d616
+		cd -
+	else
+		echo "=================="
+		echo "Skipping patches.."
+		echo "=================="
+	fi
 else
 	echo "==============="
 	echo "Skipping sync.."
@@ -57,8 +74,8 @@ else
 fi
 
 # Clone WIP trees
-#rm -rf device/oplus/MT6893/
-#git clone https://github.com/mt6893-development/android_device_oplus_MT6893 -b evox-11 device/oplus/MT6893 --depth=1
+rm -rf device/oplus/MT6893/
+git clone https://github.com/liwhy1/android_device_oplus_MT6893 -b evox-11 device/oplus/MT6893 --depth=1
 #rm -rf vendor/oplus/MT6893/
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_MT6893 -b lineage-23 vendor/oplus/MT6893 --depth=1
 #rm -rf kernel/oplus/mt6893/
