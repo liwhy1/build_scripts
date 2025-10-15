@@ -90,7 +90,7 @@ echo "================"
 echo "Starting build.."
 echo "================"
 cd $cwd
-breakfast MT6893 userdebug
+breakfast MT6893 eng
 make installclean
 mka bacon
 
