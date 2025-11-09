@@ -3,7 +3,6 @@
 # Vars
 sync=true
 sign=true
-patch=true
 cwd=$(pwd)
 
 if [ "$sync" = true ]; then
@@ -49,20 +48,6 @@ if [ "$sync" = true ]; then
 	echo "============================"
 	/opt/crave/resync.sh
 
-	# Apply patches
-	if [ "$patch" = true ]; then
-		echo "=================="
-		echo "Applying patches.."
-		echo "=================="
-		cd frameworks/base
-		git fetch https://github.com/Evolution-X/frameworks_base
-		git reset --hard FETCH_HEAD && git clean -fd
-		cd -
-	else
-		echo "=================="
-		echo "Skipping patches.."
-		echo "=================="
-	fi
 else
 	echo "==============="
 	echo "Skipping sync.."
