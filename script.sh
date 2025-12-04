@@ -15,14 +15,13 @@ if [ "$sync" = true ]; then
 	rm -rf vendor/*-priv/keys
 	rm -rf prebuilts/*clang*
 	rm -rf external/*clang*
-	rm -rf external/wpa_supplicant_8
 	rm -rf device/mediatek/sepolicy_vndr
 
 	# Init ROM manifest
 	echo "==========================="
 	echo "Initializing ROM manifest.."
 	echo "==========================="
-	repo init -u https://github.com/Evolution-X/manifest -b bka --git-lfs
+	repo init -u https://github.com/Evolution-X/manifest -b bq1 --git-lfs
 
 	# Clone local manifest
 	echo "========================"
