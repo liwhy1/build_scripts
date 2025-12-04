@@ -15,7 +15,6 @@ if [ "$sync" = true ]; then
 	rm -rf vendor/*-priv/keys
 	rm -rf prebuilts/*clang*
 	rm -rf external/*clang*
-	rm -rf device/mediatek/sepolicy_vndr
 
 	# Init ROM manifest
 	echo "==========================="
