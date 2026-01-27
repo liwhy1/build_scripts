@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Vars
-sync=true
+sync=false
 sign=true
 cwd=$(pwd)
 
