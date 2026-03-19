@@ -62,26 +62,17 @@ git clone https://github.com/liwhy1/android_device_oplus_op6893 -b evox-11_wip d
 #rm -rf vendor/oplus/camera/
 #git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b main vendor/oplus/camera --depth 1
 rm -rf vendor/oplus/camera
-rm -rf device/oplus/op6893/patches/*
+rm -rf device/oplus/op6893/vendorsetup.sh
 
 # Set up build environment
 cd $cwd
 . build/envsetup.sh
+breakfast op6893 userdebug
 
-# Build signed
+# Start build
 echo "================"
 echo "Starting build.."
 echo "================"
 cd $cwd
-breakfast op6893 userdebug
-make installclean
+m installclean
 m evolution
-
-#cd $cwd
-#echo "========================="
-#echo "Building bootimage only.."
-#echo "========================="
-#rm -rf kernel/oplus/mt6893/
-#git clone https://github.com/liwhy1/android_kernel_oplus_mt6893 -b ksu-next-susfs kernel/oplus/mt6893
-#. build/envsetup.sh
-#mka bootimage
