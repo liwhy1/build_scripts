@@ -53,7 +53,7 @@ else
 fi
 
 # Clone WIP trees
-rm -rf device/oplus/MT6893/
+rm -rf device/oplus/op6893/
 git clone https://github.com/liwhy1/android_device_oplus_op6893 -b evox-11_wip device/oplus/op6893 --depth=1
 #rm -rf vendor/oplus/MT6893/
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_MT6893 -b lineage-23 vendor/oplus/MT6893 --depth=1
