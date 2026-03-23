@@ -62,6 +62,8 @@ git clone https://github.com/liwhy1/android_device_oplus_op6893 -b evox-11_wip d
 #rm -rf vendor/oplus/camera/
 #git clone https://gitlab.com/liwhy1/proprietary_vendor_oplus_camera -b main vendor/oplus/camera --depth 1
 rm -rf device/oplus/op6893/vendorsetup.sh
+rm -rf hardware/mediatek
+git clone https://github.com/liwhy1/android_hardware_mediatek hardware/mediatek --depth 1
 
 # Set up build environment
 cd $cwd
