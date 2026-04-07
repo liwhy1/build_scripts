@@ -2,7 +2,7 @@
 
 # Vars
 sync=true
-sign=true
+sign=false
 cwd=$(pwd)
 
 if [ "$sync" = true ]; then
@@ -11,7 +11,7 @@ if [ "$sync" = true ]; then
 	echo "Removing old directories.."
 	echo "=========================="
 	rm -rf .repo/local_manifests
-	rm -rf {device,vendor,kernel}/oplus
+	rm -rf {device,vendor,kernel,hardware}/oplus
 	rm -rf {device,hardware}/mediatek
 	rm -rf vendor/*-priv/keys
 	rm -rf prebuilts/*clang*
@@ -27,7 +27,7 @@ if [ "$sync" = true ]; then
 	echo "========================"
 	echo "Cloning local manifest.."
 	echo "========================"
-	git clone https://github.com/liwhy1/local_manifests -b evox-11 .repo/local_manifests --depth=1
+	#git clone https://github.com/liwhy1/local_manifests -b evox-11 .repo/local_manifests --depth=1
 
 	# Clone signing keys
 	if [ "$sign" = true ]; then
@@ -55,7 +55,7 @@ fi
 
 # Clone WIP trees
 rm -rf device/oplus/op6893/
-git clone https://github.com/liwhy1/android_device_oplus_op6893 -b evox-11 device/oplus/op6893 --depth=1
+git clone https://github.com/Evolution-X-Devices/device_oplus_op6893 -b bka device/oplus/op6893 --depth=1
 #rm -rf vendor/oplus/op6893/
 #git clone https://github.com/liwhy1/proprietary_vendor_oplus_op6893 -b lineage-23.2 vendor/oplus/op6893 --depth=1
 #rm -rf kernel/oplus/mt6893/
